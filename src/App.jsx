@@ -37,11 +37,18 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen text-[#A59DB8]" style={{ background: 'linear-gradient(180deg, #0E0817 0%, #1A0F2C 100%)' }}>
+    <div className="min-h-screen text-[#A59DB8] relative" style={{ background: 'linear-gradient(180deg, #0E0817 0%, #1A0F2C 100%)' }}>
       <style>{`
         .font-serif { font-family: 'Playfair Display', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif; }
         .animate-in { transition: all 700ms cubic-bezier(0.22, 1, 0.36, 1); }
+        .glow-ring { box-shadow: 0 0 0 1px rgba(255,255,255,0.06), 0 10px 30px rgba(156,106,222,0.15); }
       `}</style>
+      {/* Subtle background ornaments */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute left-[-10%] top-[20%] h-72 w-72 rounded-full blur-3xl opacity-20" style={{ background: 'radial-gradient(circle, rgba(156,106,222,0.35) 0%, transparent 60%)' }} />
+        <div className="absolute right-[-10%] top-[10%] h-80 w-80 rounded-full blur-3xl opacity-20" style={{ background: 'radial-gradient(circle, rgba(200,159,235,0.28) 0%, transparent 60%)' }} />
+      </div>
+
       <Header active={active} />
       <main>
         <Hero />
